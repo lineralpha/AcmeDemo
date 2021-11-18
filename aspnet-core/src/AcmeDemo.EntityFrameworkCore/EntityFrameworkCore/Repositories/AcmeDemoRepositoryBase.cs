@@ -10,7 +10,7 @@ namespace AcmeDemo.EntityFrameworkCore.Repositories
     /// </summary>
     /// <typeparam name="TEntity">Entity type</typeparam>
     /// <typeparam name="TPrimaryKey">Primary key type of the entity</typeparam>
-    public abstract class AcmeDemoRepositoryBase<TEntity, TPrimaryKey> : EfCoreRepositoryBase<AcmeDemoDbContext, TEntity, TPrimaryKey>
+    public class AcmeDemoRepositoryBase<TEntity, TPrimaryKey> : EfCoreRepositoryBase<AcmeDemoDbContext, TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {
         protected AcmeDemoRepositoryBase(IDbContextProvider<AcmeDemoDbContext> dbContextProvider)
@@ -26,7 +26,7 @@ namespace AcmeDemo.EntityFrameworkCore.Repositories
     /// This is a shortcut of <see cref="AcmeDemoRepositoryBase{TEntity,TPrimaryKey}"/> for <see cref="int"/> primary key.
     /// </summary>
     /// <typeparam name="TEntity">Entity type</typeparam>
-    public abstract class AcmeDemoRepositoryBase<TEntity> : AcmeDemoRepositoryBase<TEntity, int>, IRepository<TEntity>
+    public class AcmeDemoRepositoryBase<TEntity> : AcmeDemoRepositoryBase<TEntity, int>, IRepository<TEntity>
         where TEntity : class, IEntity<int>
     {
         protected AcmeDemoRepositoryBase(IDbContextProvider<AcmeDemoDbContext> dbContextProvider)
